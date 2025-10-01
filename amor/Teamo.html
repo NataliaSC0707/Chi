@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Nuestros Recuerdos 💕</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(135deg, #ffe4f2, #ffd6eb);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    h1 {
+      color: #ff4d94;
+      font-size: 2.5rem;
+      margin: 20px 0;
+      text-shadow: 2px 2px #fff;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 20px;
+      border: 4px solid #ff99c8;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      opacity: 0;
+      transform: scale(0.9);
+      animation: aparecer 1s forwards;
+      cursor: pointer;
+    }
+
+    @keyframes aparecer {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .gallery img:nth-child(1) { animation-delay: 0.3s; }
+    .gallery img:nth-child(2) { animation-delay: 0.6s; }
+    .gallery img:nth-child(3) { animation-delay: 0.9s; }
+    .gallery img:nth-child(4) { animation-delay: 1.2s; }
+    .gallery img:nth-child(5) { animation-delay: 1.5s; }
+    .gallery img:nth-child(6) { animation-delay: 1.8s; }
+
+    /* Modal corazón */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 10;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 20px;
+      border-radius: 30px;
+      text-align: center;
+      position: relative;
+      max-width: 300px;
+      animation: modalAppear 0.5s ease;
+    }
+
+    @keyframes modalAppear {
+      from { transform: scale(0.7); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .heart {
+      font-size: 50px;
+      color: #ff4d94;
+      margin-bottom: 15px;
+      animation: latido 1s infinite;
+    }
+
+    @keyframes latido {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    .close {
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      font-size: 35px; /* Más grande */
+      cursor: pointer;
+      color: #ff4d94;
+      background: none;
+      border: none;
+      padding: 5px;
+    }
+
+    .close:hover {
+      color: #ff1a75;
+    }
+
+    a.song-link {
+      display: block;
+      background: #ff4d94;
+      color: white;
+      padding: 10px;
+      border-radius: 20px;
+      text-decoration: none;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .back {
+      margin-top: 30px;
+      padding: 12px 25px;
+      background-color: #ff4d94;
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: background 0.3s ease;
+    }
+
+    .back:hover {
+      background-color: #e63e82;
+    }
+  </style>
+</head>
+<body>
+  <h1>Nuestros Recuerdos ✨</h1>
+
+  <div class="gallery">
+    <img src="1.jpg" alt="Foto 1" onclick="openModal('https://open.spotify.com/track/3uqDUUqiVrtbKakobkPXmv')">
+    <img src="2.jpg" alt="Foto 2" onclick="openModal('https://open.spotify.com/track/0Y7NqQ9RNoHZHDTeDS4UnO')">
+    <img src="3.jpg" alt="Foto 3" onclick="openModal('https://open.spotify.com/track/6QrJBMADfALe8CUfK4IJnS')">
+    <img src="4.jpg" alt="Foto 4" onclick="openModal('https://open.spotify.com/track/0tgVpDi06FyKpA1z0VMD4v')">
+    <img src="5.jpg" alt="Foto 5" onclick="openModal('https://open.spotify.com/track/7kSLdGdXLey7pzLsWpdg1h')">
+    <img src="6.jpg" alt="Foto 6" onclick="openModal('https://open.spotify.com/track/0q3P0vjpqqswJSukITnfZA')">
+  </div>
+
+<button class="back" onclick="window.location.href='Index.html'">Volver a la cartita 💌</button>
+
+  <!-- Modal -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <button class="close" onclick="closeModal()">×</button>
+      <div class="heart">❤️</div>
+      <a id="songLink" class="song-link" target="_blank">Escuchar canción 🎵</a>
+    </div>
+  </div>
+
+<script>
+    function openModal(link) {
+      document.getElementById("modal").style.display = "flex";
+      document.getElementById("songLink").href = link;
+    }
+
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      let modal = document.getElementById("modal");
+      if (event.target === modal) {
+        closeModal();
+      }
+    }
+  </script>
+</body>
+</html>
+

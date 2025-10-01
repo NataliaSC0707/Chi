@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Cartita para mi amor 💕</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: #ffe4f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .card {
+      background: #fff0f6;
+      width: 600px;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      border: 4px solid #ff99c8;
+      position: relative;
+
+      opacity: 0;
+      transform: translateY(50px);
+      animation: entrar 1.5s ease forwards;
+    }
+
+    @keyframes entrar {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card h1 {
+      text-align: center;
+      color: #ff4d94;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .card p {
+      color: #444;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      text-align: justify;
+    }
+
+    .heart-button {
+      display: block;
+      margin: 30px auto 0;
+      width: 80px;
+      height: 80px;
+      background-color: #ff4d94;
+      position: relative;
+      transform: rotate(-45deg);
+      cursor: pointer;
+      border: none;
+      outline: none;
+      transition: transform 0.3s ease;
+    }
+
+    .heart-button::before,
+    .heart-button::after {
+      content: "";
+      width: 80px;
+      height: 80px;
+      background-color: #ff4d94;
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .heart-button::before {
+      top: -40px;
+      left: 0;
+    }
+
+    .heart-button::after {
+      top: 0;
+      left: 40px;
+    }
+
+    .heart-button:hover {
+      transform: rotate(-45deg) scale(1.1);
+    }
+
+    .note {
+      background: #fff;
+      border: 2px dashed #ff99c8;
+      padding: 15px;
+      margin-top: 20px;
+      border-radius: 12px;
+      max-height: 200px; /* Altura fija para scroll */
+      overflow-y: auto; /* Habilita scroll vertical */
+    }
+
+    /* Estilo del scroll */
+    .note::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .note::-webkit-scrollbar-thumb {
+      background-color: #ff99c8;
+      border-radius: 4px;
+    }
+
+    .note::-webkit-scrollbar-track {
+      background: #ffe4f2;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Para mi amor 💕</h1>
+    <div class="note">
+      <p>
+       Mi niño, mi Alex, hoy cumplimos 4 meses y no sabes cuánto me emociona decirlo. No importa qué tan lejos estemos, yo te siento aquí conmigo, como si nunca me soltaras de la mano. Estos meses contigo han sido de los más bonitos de mi vida, porque me haces sentir querida, cuidada y amada de una forma que nunca pensé. Eres mi cielo, mi amor, mi persona favorita, y aunque a veces me gustaría poder abrazarte y besarte en persona, sé que lo nuestro vale cada segundo de espera. Tú me haces feliz con tus palabras, con tus detalles y con la forma en que siempre estás para mí, incluso con la distancia. Gracias, mi niño, por estos 4 meses tan hermosos, por ser mi Alex, por ser tan increíble conmigo y por darme tanto amor. Te prometo seguir cuidando de ti y de nosotros, porque lo que tenemos es demasiado especial. Feliz mesiversario, amor, te amo con todo mi corazón y con todo lo que soy.
+        💕
+      </p>
+    </div>
+
+    <!-- Botón corazón que manda a otra página -->
+    <form action="Teamo.html">
+      <button class="heart-button"></button>
+    </form>
+  </div>
+</body>
+</html>
